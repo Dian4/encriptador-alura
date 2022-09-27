@@ -25,7 +25,7 @@ function cifrar() {
     
     if (texto === "") {
         podemosCopiar = false;
-        cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p>';
+        cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p><img src="pusheen-scared.png" class="img-fluid">';
     } else {
         let arrayCifrado = [];
         podemosCopiar = true;
@@ -37,7 +37,8 @@ function cifrar() {
 
         let textoCifrado = arrayCifrado.join("");
 
-        cardBody.innerHTML = '<h5 class="card-title">' + textoCifrado + '</h5>';
+        cardBody.innerHTML = '<h5 class="card-title">' + textoCifrado + '</h5>'
+            + '<img src="pusheen-holmes.png" class="img-fluid">';
     }
 }
 
@@ -47,7 +48,7 @@ function descifrar() {
 
     if (texto === "") {
         podemosCopiar = false;
-        cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p>';
+        cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p><img src="pusheen-scared.png" class="img-fluid">';
     } else {
         podemosCopiar = true;
         let textoDescifrado = texto.replaceAll("enter", "e")
@@ -56,7 +57,7 @@ function descifrar() {
             .replaceAll("ober", "o")
             .replaceAll("ufat", "u");
 
-        cardBody.innerHTML = '<h5 class="card-title">' + textoDescifrado + '</h5>';
+        cardBody.innerHTML = '<h5 class="card-title">' + textoDescifrado + '</h5>' + '<img src="pusheen-laptop.png" class="img-fluid">';
     }
 }
 
