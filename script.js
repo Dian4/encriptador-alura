@@ -39,7 +39,20 @@ function cifrar() {
 }
 
 function descifrar() {
-    alert("Descifrar");
+    let texto = document.querySelector("textarea").value.toLowerCase();
+    let cardBody = document.querySelector(".card-body");
+
+    if (texto === "") {
+        cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p>';
+    } else {
+        let textoDescifrado = texto.replaceAll("enter", "e")
+            .replaceAll("imes", "i")
+            .replaceAll("ai", "a")
+            .replaceAll("ober", "o")
+            .replaceAll("ufat", "u");
+
+        cardBody.innerHTML = '<h5 class="card-title">' + textoDescifrado + '</h5>';
+    }
 }
 
 function copiar() {
