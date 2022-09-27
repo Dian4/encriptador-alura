@@ -1,6 +1,7 @@
 var btnCifrar = document.querySelector("#btnCifrar");
 var btnDescifrar = document.querySelector("#btnDescifrar");
 var btnCopiar = document.querySelector("#btnCopiar");
+var podemosCopiar = false;
 
 function cifrarLetra(letra) {
     if (letra === "e") {
@@ -23,9 +24,11 @@ function cifrar() {
     let cardBody = document.querySelector(".card-body");
     
     if (texto === "") {
+        podemosCopiar = false;
         cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p>';
     } else {
         let arrayCifrado = [];
+        podemosCopiar = true;
 
         for (let i = 0; i < texto.length; i++) {
             let letra = texto.charAt(i);
@@ -43,8 +46,10 @@ function descifrar() {
     let cardBody = document.querySelector(".card-body");
 
     if (texto === "") {
+        podemosCopiar = false;
         cardBody.innerHTML = '<h5 class="card-title">Ningún mensaje fue encontrado</h5><p class="card-text">Ingresa el texto que deseas encriptar o desencriptar.</p>';
     } else {
+        podemosCopiar = true;
         let textoDescifrado = texto.replaceAll("enter", "e")
             .replaceAll("imes", "i")
             .replaceAll("ai", "a")
@@ -56,7 +61,15 @@ function descifrar() {
 }
 
 function copiar() {
-    alert("Copiar");
+    if (podemosCopiar) {
+        let texto = document.querySelector(".card-title").innerText;
+
+        navigator.clipboard.writeText(texto);
+
+        alert("Se ha copiado con éxito al portapapeles.");
+    } else {
+        alert("No hay ningún mensaje por copiar.");
+    }
 }
 
 btnCifrar.onclick = cifrar;
